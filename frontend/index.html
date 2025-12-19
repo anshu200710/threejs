@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gesture Morpher</title>
+    <style>
+      body { margin: 0; overflow: hidden; background-color: #000; font-family: sans-serif; }
+      #canvas-container { width: 100vw; height: 100vh; position: absolute; top: 0; left: 0; z-index: 1; }
+      #video-feed { position: absolute; bottom: 10px; left: 10px; width: 160px; height: 120px; z-index: 2; transform: scaleX(-1); border: 2px solid #333; opacity: 0.7; border-radius: 8px; }
+      #ui { position: absolute; top: 20px; left: 20px; color: white; z-index: 3; pointer-events: none; }
+      h1 { margin: 0; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; }
+      .status { color: #00ff88; font-weight: bold; margin-top: 5px; }
+      .gesture-box { margin-top: 15px; padding: 10px; background: rgba(0,0,0,0.5); border-radius: 5px; font-size: 0.9rem; }
+      .key { color: #ffeb3b; font-weight: bold; }
+    </style>
+  </head>
+  <body>
+    <div id="ui">
+      <h1>Particle Morpher</h1>
+      <div class="status" id="status-text">Initializing Camera...</div>
+      <div class="gesture-box">
+        <div><span class="key">Open Hand:</span> Expand & Flow</div>
+        <div><span class="key">Closed Fist:</span> Contract & Red Color</div>
+        <div><span class="key">Pinch:</span> Switch Shape</div>
+      </div>
+      <p style="font-size: 0.9rem; color: #aaa;">Shape: <span id="shape-name" style="color:white">Sphere</span></p>
+    </div>
+
+    <video id="video-feed" playsinline></video>
+    <div id="canvas-container"></div>
+    
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
